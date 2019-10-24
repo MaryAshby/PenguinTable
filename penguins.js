@@ -41,15 +41,6 @@ var penguinTableInformation=[picture, meanQuiz, meanHW, meanTests, finGrade]
 classroom.push(penguinTableInformation);
 
 
-
-//set banner for promise retrieval//
-
-var setBanner = function(message)
-{
-    d3.select("#banner").text(message);
-}
-
-
 //create data set up//
 
 var pinguinFacts = function(penguin)
@@ -83,10 +74,16 @@ var prettyPenguins = function(penguins)
          })
 }
 
+//set banner for promise retrieval//
 
+var setBanner = function(message)
+{
+    d3.select("#banner").text(message);
+}
 
 
 //promise//
+
 var penguinPromise = d3.json("classData.json")
 
 penguinPromise.then(function(penguin)
@@ -98,3 +95,29 @@ function(err)
 {
  setBanner("Penguins Have Left the Building");
 });
+
+//TABLE//
+    //where col=column and accessor =getters and setters//
+    
+ var sortColumn=function(picture,col,accessor)
+ {
+    d3.select(col)
+        .on("click",function()
+    {
+        penguin.sort(function(a,b) 
+        { 
+            return (accessor(a)-accessor(b));
+        })
+        makeTable(penguin,"ALL");
+    })
+}
+ 
+ var tableHeader = function(penguins)
+ {
+     d3.select("#meanQuiz)
+               .on("click", function()
+                   {
+         makeTable(penguins.sort(function(a,b)
+                                 {return a-b}), "ALL")
+     }
+                   
