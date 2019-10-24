@@ -21,7 +21,7 @@ var meanHW=function(penguin)
  var answer=d3.mean(pq);
  return answer;}
 
-var testGrade=funtion(test)
+var testGrade=function(test)
 {return test.grade;}
 
 var meanTests=function(penguin)
@@ -99,13 +99,13 @@ function(err)
 //button returns//
     var poorly = meanQuiz < 70;
     
-    d3.select("poor")
+    d3.select("#poor")
       .on("click", function()
           {
-           penguin.sort(function(a,b)
+           poorly.sort(function(a,b))
                         {
                          return (a - b);
-           }});
+    }});
                
     
     
