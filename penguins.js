@@ -1,9 +1,19 @@
 //space holding function for button//
 
-#OMG.onclick = function() {saveMe()};
+document.getElementById("OMG").onmouseover = function() {mouseOver()};
+document.getElementById("OMG").onmouseout = function() {mouseOut()};
 
-function saveMe() {
-#OMG.innerHTML = "Between dealing with family/non-stop meetings/conference I'm only half done. Still need to finish table and troubleshoot.";
+function mouseOver() {
+  document.getElementById("OMG").innerHTML = "Between dealing with family/non-stop meetings/conference I'm only half done. Still need to finish table and troubleshoot.";
+}
+
+function mouseOut() {
+  document.getElementById("OMG").innerHTML= "My kingdom for an extra brain.";
+}
+
+
+
+
 
 
 //creation of requested data//
