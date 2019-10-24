@@ -28,9 +28,13 @@ var meanTests=function(penguin)
  var answer=d3.mean(pq);
  return answer;}
 
-var finalGrade=function(oebgyub)
-{var obj=(meanFinal*0.35)+(
+var finGrade=function(penguin)
+    {var obj=(meanFinal*0.35)+(meanTests*0.3)+(meanQuiz*0.2)+(meanHW*0.15);
+        return obj;}
+
+var penguinTableInformation=[picture, meanQuiz, meanHW, meanTests, finGrade]
 //push of new info to penguins//
+
 
 
 
