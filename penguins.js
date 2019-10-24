@@ -35,7 +35,7 @@ var finGrade=function(penguin)
 var penguinTableInformation=[picture, meanQuiz, meanHW, meanTests, finGrade]
 //push of new info to penguins//
 
-
+classroom.push(penguinTableInformation);
 
 
 
