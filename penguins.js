@@ -1,4 +1,5 @@
 //creation of requested data//
+
 var picture=function(penguin)
 {var obj=
     {picture: penguin.picture};
@@ -32,21 +33,38 @@ var finGrade=function(penguin)
     {var obj=(meanFinal*0.35)+(meanTests*0.3)+(meanQuiz*0.2)+(meanHW*0.15);
         return obj;}
 
-var penguinTableInformation=[picture, meanQuiz, meanHW, meanTests, finGrade]
 //push of new info to penguins//
+
+
+var penguinTableInformation=[picture, meanQuiz, meanHW, meanTests, finGrade]
 
 classroom.push(penguinTableInformation);
 
 
 
-//set banner for promise//
+//set banner for promise retrieval//
+
 var setBanner = function(message)
 {
     d3.select("#banner").text(message);
 }
 
 
+//create data set up//
 
+var prettyPenguins = function(penguins)
+{
+    d3.select("#pinguinPictures")
+      .selectAll("img")
+      .data(penguins)
+      .enter()
+      .append("img")
+      .attr("src",function(d) {return d.img})
+      .on("click",function(d)
+         {
+           drawDetails(d);
+         })
+}
 
 
 
@@ -57,7 +75,7 @@ var penguinPromise = d3.json("classData.json")
 penguinPromise.then(function(penguin)
 {
  setBanner("Pretty Pompous Penguins");
- drawImages(penguin);
+ prettyPenguins(penguin);
 },
 function(err)
 {
