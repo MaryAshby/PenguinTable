@@ -1,4 +1,8 @@
-
+#OMG
+{
+    background-color: #DB1F48;
+    color: #E5DDC8;
+}
 
 //creation of requested data//
 
