@@ -114,7 +114,7 @@ function(err)
  
  var tableHeader = function(penguins)
  {
-     d3.select("#meanQuiz)
+     d3.select("#quiz")
                .on("click", function()
                    {
          makeTable(penguins.sort(function(a,b)
