@@ -52,6 +52,23 @@ var setBanner = function(message)
 
 //create data set up//
 
+var pinguinFacts = function(penguin)
+{
+    d3.selectAll("#pinguinData *").remove();
+    
+    var box = d3.select("#pinguinData");
+    box.append("img")
+       .attr("src",penguin.img)
+       .attr("class","description");
+    
+    box.append("div").attr("class","title").text(penguin.name)
+    var info  = box.append("div").attr("class","info")
+
+    info.append("div").text("Quizzes:   "+penguin.meanQuiz);
+    info.append("div").text("Homework: "+penguin.meanHW);
+    info.append("div").text("Tests:  "+penguin.meanTests);
+    info.append("div").text("Final Grade:  "+penguin.finGrade);
+
 var prettyPenguins = function(penguins)
 {
     d3.select("#pinguinPictures")
