@@ -96,6 +96,19 @@ function(err)
  setBanner("Penguins Have Left the Building");
 });
 
+//button returns//
+    var poorly = meanQuiz < 70;
+    
+    d3.select("poor")
+      .on("click", function()
+          {
+           penguin.sort(function(a,b)
+                        {
+                         return (a - b);
+           }});
+               
+    
+    
 //TABLE//
     //where col=column and accessor =getters and setters//
     
