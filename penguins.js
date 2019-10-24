@@ -1,9 +1,9 @@
 //space holding function for button//
 
-document.getElementById("OMG").onclick = function() {saveMe()};
+#OMG.onclick = function() {saveMe()};
 
 function saveMe() {
-  document.getElementById("OMG").innerHTML = "Between dealing with family/non-stop meetings/conference I'm only half done. Still need to finish table and troubleshoot.";
+#OMG.innerHTML = "Between dealing with family/non-stop meetings/conference I'm only half done. Still need to finish table and troubleshoot.";
 
 
 //creation of requested data//
