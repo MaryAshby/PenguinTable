@@ -66,40 +66,40 @@ classroom.push(penguinTableInformation);
 
 //Buttons//
       
-var setButtons = function(penguins)
+var setButtons = function(penguin)
      {
       d3.select("#all").on("click",function()
                        {
-                        makeTable(penguins,"all")
+                        makeTable(penguin,"all")
                        });
     
     d3.select("passing").on("click",function()
                         {
-                        makeTable(penguins,"passing")
+                        makeTable(penguin,"passing")
                         });
     
     d3.select("#poor").on("click",function()
                         {
-                         makeTable(planets,"poor")
+                         makeTable(penguin,"poor")
                         });
      }
 
-var filterPenguins = function(penguins,mode)
+var filterPenguins = function(penguin,mode)
 {
     if(mode=="all")
     {
-        return penguins;       
+        return penguin;       
     }
     else if (mode == "passing")
     {
-        return penguins.filter(function(penguins)
+        return penguin.filter(function(penguin)
            {
-           return penguins.finGrade=>70;                      
+           return penguin.finGrade=>70;                      
            })
     }
     else if (mode == "poor")
     {
-        return penguins.filter(function(penguins)
+        return penguin.filter(function(penguin)
         {
             return penguin.finGrade<70;                      
         })
@@ -136,7 +136,7 @@ var filterPenguins = function(penguins,mode)
      d3.select("#quiz")
                .on("click", function()
                    {
-         makeTable(penguins.sort(function(a,b)
+         makeTable(penguin.sort(function(a,b)
                                  {return a-b}), "all")
      }
            
@@ -149,22 +149,22 @@ var filterPenguins = function(penguins,mode)
     rows.append("td").text(fcn);
 }
 
-var makeTable = function(penguins,mode)
+var makeTable = function(penguin,mode)
 {
     d3.selectAll("tbody *").remove();
   
     var rows = d3.select("tbody")
     .selectAll("tr")
-    .data(filterPenguins(penguins,mode))
+    .data(filterPenguins(penguin,mode))
     .enter()
     .append("tr");
     
     
-    addCol(rows,function(penguins){return penguin.meanQuiz})
+    addCol(rows,function(penguin){return penguin.meanQuiz})
     
     rows.append("td")
         .append("img")
-        .attr("src",function(penguins)
+        .attr("src",function(penguin)
         {
             return penguins.img;
         })
@@ -173,9 +173,9 @@ var makeTable = function(penguins,mode)
             return "One Fine Penguin "+penguins.name;
         })
            
-    addCol(rows,function(penguins){return penguins.meanHW})
-    addCol(rows,function(penguins){return penguins.meanTests})
-    addCol(rows,function(penguins){return penguins.finGrade})
+    addCol(rows,function(penguin){return penguin.meanHW})
+    addCol(rows,function(penguin){return penguin.meanTests})
+    addCol(rows,function(penguin){return penguin.finGrade})
   
 }
 
