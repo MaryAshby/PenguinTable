@@ -98,30 +98,7 @@ var prettyPenguins = function(penguins)
 
 
 
-//button returns//
-    var poorly = finGrade < 70;
-    
-    d3.select("#poor")
-      .on("click", function()
-          {
-           poorly.sort(function(a,b))
-                        {
-                         return (a - b);
-                         }
-          });
 
-     var passingp = finGrade > 70;
-
-     d3.select("#passing")
-       .on("click, function()
-           {
-           passingp.sort(function(a,b))
-                     {
-                         return(a-b):
-                     }
-       });
-               
-    
     
 //TABLE//
     //where col=column and accessor =getters and setters//
@@ -151,6 +128,8 @@ var prettyPenguins = function(penguins)
     sortColumn(planets,"#homework",function(p){return p.meanHW});
     sortColumn(planets,"#test",function(p){return p.meanTests});
     sortColumn(planets,"#final",function(p){return p.finGrade});
+      
+//Buttons//
       
 var setButtons = function(penguins)
      {
