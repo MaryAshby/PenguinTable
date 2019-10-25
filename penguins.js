@@ -2,57 +2,58 @@
 //set banner for promise retrieval//
 
 var setBanner = function(message)
-{
-    d3.select("#banner").text(message);
-}
+     {
+       d3.select("#banner").text(message);
+     }
 
 
 //promise//
 
-var penguinPromise = d3.json("classData.json")
+var penguinPromise = d3.json("penguin/classData.json")
 
 penguinPromise.then(function(penguin)
-{
- setBanner("Pretty Pompous Penguins");
-},
+     {
+      setBanner("Pretty Pompous Penguins");
+     },
 function(err)
-{
- setBanner("Penguins Have Left the Building");
-});
+     {
+      setBanner("Penguins Have Left the Building");
+     });
 
 //creation of requested data//
 
 var picture=function(penguin)
-{var obj=
+    {
+        var obj=
     {picture: penguin.picture};
      return obj;}
 
 var getGrade=function(quiz) 
-{return quiz.grade;}
+     {return quiz.grade;}
 
 var meanQuiz = function(penguin)
-{var pq=penguin.quizes.map(getGrade);
- var answer=d3.mean(pq);
- return answer;}
+     {var pq=penguin.quizes.map(getGrade);
+      var answer=d3.mean(pq);
+      return answer;}
 
 var hwGrade=function(homework)
-{return answer;}
+     {return answer;}
 
 var meanHW=function(penguin)
-{var pq=penguin.homework.map(hwGrade);
- var answer=d3.mean(pq);
- return answer;}
+     {var pq=penguin.homework.map(hwGrade);
+      var answer=d3.mean(pq);
+      return answer;}
 
 var testGrade=function(test)
-{return test.grade;}
+     {return test.grade;}
 
 var meanTests=function(penguin)
-{var pq=penguin.test.map(testGrade);
- var answer=d3.mean(pq);
- return answer;}
+     {var pq=penguin.test.map(testGrade);
+      var answer=d3.mean(pq);
+      return answer;}
 
 var final=function(final)
-{return final.grade;}
+     {return final.grade;}
 
 var finGrade=function(penguin)
     {var obj=(final*0.35)+(meanTests*0.3)+(meanQuiz*0.2)+(meanHW*0.15);
