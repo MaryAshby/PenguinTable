@@ -64,71 +64,6 @@ var penguinTableInformation=[picture, meanQuiz, meanHW, meanTests, finGrade]
 
 classroom.push(penguinTableInformation);
 
-
-//create data set up//
-
-var penguinFacts = function(penguin)
-     {
-      d3.selectAll("#pinguinData *").remove();
-    
-      var box = d3.select("#pinguinData");
-      box.append("img")
-       .attr("src",penguin.img)
-       .attr("class","description");
-    
-     box.append("div").attr("class","title").text(penguin.name)
-     var info  = box.append("div").attr("class","info")
-
-     info.append("div").text("Quizzes:   "+penguin.meanQuiz);
-     info.append("div").text("Homework: "+penguin.meanHW);
-     info.append("div").text("Tests:  "+penguin.meanTests);
-     info.append("div").text("Final Grade:  "+penguin.finGrade);
-      }
-
-var prettyPenguins = function(penguins)
-     {
-    d3.select("#pinguinPictures")
-      .selectAll("img")
-      .data(penguins)
-      .enter()
-      .append("img")
-      .attr("src",function(d) {return d.img})
-      .on("click",function(d) {drawDetails(d)})
-     }
-
-
-
-
-    
-//TABLE//
-    //where col=column and accessor =getters and setters//
-    
- var sortColumn=function(picture,col,accessor)
- {
-    d3.select(col)
-        .on("click",function()
-    {
-        penguin.sort(function(a,b) 
-        { 
-            return (accessor(a)-accessor(b));
-        })
-        makeTable(penguin,"ALL");
-    })
-}
- 
- var tableHeader = function(penguins)
- {
-     d3.select("#quiz")
-               .on("click", function()
-                   {
-         makeTable(penguins.sort(function(a,b)
-                                 {return a-b}), "ALL")
-     }
-           
-    sortColumn(planets,"#homework",function(p){return p.meanHW});
-    sortColumn(planets,"#test",function(p){return p.meanTests});
-    sortColumn(planets,"#final",function(p){return p.finGrade});
-      
 //Buttons//
       
 var setButtons = function(penguins)
@@ -178,3 +113,72 @@ var filterPenguins = function(penguins,mode)
 
    
                    
+
+    
+//TABLE//
+    //where col=column and accessor =getters and setters//
+    
+ var sortColumn=function(picture,col,accessor)
+ {
+    d3.select(col)
+        .on("click",function()
+    {
+        penguin.sort(function(a,b) 
+        { 
+            return (accessor(a)-accessor(b));
+        })
+        makeTable(penguin,"all");
+    })
+}
+ 
+ var tableHeader = function(penguins)
+ {
+     d3.select("#quiz")
+               .on("click", function()
+                   {
+         makeTable(penguins.sort(function(a,b)
+                                 {return a-b}), "all")
+     }
+           
+    sortColumn(planets,"#homework",function(p){return p.meanHW});
+    sortColumn(planets,"#test",function(p){return p.meanTests});
+    sortColumn(planets,"#final",function(p){return p.finGrade});
+      
+  var addCol = function(rows,fcn)
+{
+    rows.append("td").text(fcn);
+}
+
+var makeTable = function(penguins,mode)
+{
+    d3.selectAll("tbody *").remove();
+  
+    var rows = d3.select("tbody")
+    .selectAll("tr")
+    .data(filterPenguins(penguins,mode))
+    .enter()
+    .append("tr");
+    
+    
+    addCol(rows,function(penguins){return penguin.meanQuiz})
+    
+    rows.append("td")
+        .append("img")
+        .attr("src",function(penguins)
+        {
+            return penguins.img;
+        })
+        .attr("alt",function(penguins)
+        {
+            return "One Fine Penguin "+penguins.name;
+        })
+           
+    addCol(rows,function(penguins){return penguins.meanHW})
+    addCol(rows,function(penguins){return penguins.meanTests})
+    addCol(rows,function(penguins){return penguins.finGrade})
+  
+}
+
+
+    
+      
