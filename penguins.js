@@ -6,7 +6,6 @@ var setBanner = function(message)
        d3.select("#banner").text(message);
      }
 
-
 //promise//
 
 var penguinPromise = d3.json("penguin/classData.json")
@@ -57,34 +56,29 @@ var finGrade=function(penguin)
     {var obj=(final*0.35)+(meanTests*0.3)+(meanQuiz*0.2)+(meanHW*0.15);
         return obj;}
 
-//push of new info to penguins//
 
-
-var penguinTableInformation=[picture, meanQuiz, meanHW, meanTests, finGrade]
-
-classroom.push(penguinTableInformation);
 
 //Buttons//
       
 var setButtons = function(penguin)
      {
-      d3.select("#all").on("click",function()
+      d3.select("#all").on("click", function()
                        {
-                        makeTable(penguin,"all")
+                        makeTable(penguin, "all")
                        });
     
-    d3.select("passing").on("click",function()
+    d3.select("#passing").on("click", function()
                         {
-                        makeTable(penguin,"passing")
+                        makeTable(penguin, "passing")
                         });
     
-    d3.select("#poor").on("click",function()
+    d3.select("#poor").on("click", function()
                         {
-                         makeTable(penguin,"poor")
+                         makeTable(penguin, "poor")
                         });
      }
 
-var filterPenguins = function(penguin,mode)
+var filterPenguins = function(penguin, mode)
 {
     if(mode=="all")
     {
@@ -118,16 +112,16 @@ var filterPenguins = function(penguin,mode)
 //TABLE//
     //where col=column and accessor =getters and setters//
     
- var sortColumn=function(picture,col,accessor)
+ var sortColumn=function(picture, col, accessor)
  {
     d3.select(col)
-        .on("click",function()
+        .on("click", function()
     {
         penguin.sort(function(a,b) 
         { 
             return (accessor(a)-accessor(b));
         })
-        makeTable(penguin,"all");
+        makeTable(penguin, "all");
     })
 }
  
@@ -140,11 +134,11 @@ var filterPenguins = function(penguin,mode)
                                  {return a-b}), "all")
      }
            
-    sortColumn(planets,"#homework",function(p){return p.meanHW});
-    sortColumn(planets,"#test",function(p){return p.meanTests});
-    sortColumn(planets,"#final",function(p){return p.finGrade});
+    sortColumn(planets,"#homework", function(p){return p.meanHW});
+    sortColumn(planets,"#test", function(p){return p.meanTests});
+    sortColumn(planets,"#final", function(p){return p.finGrade});
       
-  var addCol = function(rows,fcn)
+  var addCol = function(rows, fcn)
 {
     rows.append("td").text(fcn);
 }
@@ -170,7 +164,7 @@ var makeTable = function(penguin,mode)
         })
         .attr("alt",function(penguins)
         {
-            return "One Fine Penguin "+penguins.name;
+            return "One Fine Penguin "+penguins.img;
         })
            
     addCol(rows,function(penguin){return penguin.meanHW})
