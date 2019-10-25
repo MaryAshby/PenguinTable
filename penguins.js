@@ -67,7 +67,7 @@ classroom.push(penguinTableInformation);
 
 //create data set up//
 
-var pinguinFacts = function(penguin)
+var penguinFacts = function(penguin)
      {
       d3.selectAll("#pinguinData *").remove();
     
