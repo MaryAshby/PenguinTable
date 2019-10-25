@@ -161,13 +161,41 @@ var setButtons = function(penguins)
     
     d3.select("passing").on("click",function()
                         {
-        makeTable(penguins,"passing")
-    });
+                        makeTable(penguins,"passing")
+                        });
     
     d3.select("#poor").on("click",function()
                         {
-        makeTable(planets,"poor")
-    });
-     
+                         makeTable(planets,"poor")
+                        });
+     }
+
+var filterPenguins = function(penguins,mode)
+{
+    if(mode=="all")
+    {
+        return penguins;       
+    }
+    else if (mode == "passing")
+    {
+        return penguins.filter(function(penguins)
+           {
+           return penguins.finGrade=>70;                      
+           })
+    }
+    else if (mode == "poor")
+    {
+        return penguins.filter(function(penguins)
+        {
+            return penguin.finGrade<70;                      
+        })
+    }
+    else
+    {
+        console.error("UNKNOWN fitler Type",mode);    
+        return undefined;
+    }
+}
+
    
                    
