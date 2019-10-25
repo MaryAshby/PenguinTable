@@ -1,9 +1,3 @@
-#OMG
-{
-    background-color: #DB1F48;
-    color: #E5DDC8;
-}
-
 //creation of requested data//
 
 var picture=function(penguin)
@@ -95,7 +89,6 @@ var penguinPromise = d3.json("classData.json")
 penguinPromise.then(function(penguin)
 {
  setBanner("Pretty Pompous Penguins");
- prettyPenguins(penguin);
 },
 function(err)
 {
