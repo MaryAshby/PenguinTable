@@ -23,9 +23,7 @@ function(err)
 //creation of requested data//
 
 var picture=function(penguin)
-    {
-        var obj=
-    {picture: penguin.picture};
+    {var obj=picture: penguin.picture;
      return obj;}
 
 var getGrade=function(quiz) 
@@ -70,40 +68,38 @@ classroom.push(penguinTableInformation);
 //create data set up//
 
 var pinguinFacts = function(penguin)
-{
-    d3.selectAll("#pinguinData *").remove();
+     {
+      d3.selectAll("#pinguinData *").remove();
     
-    var box = d3.select("#pinguinData");
-    box.append("img")
+      var box = d3.select("#pinguinData");
+      box.append("img")
        .attr("src",penguin.img)
        .attr("class","description");
     
-    box.append("div").attr("class","title").text(penguin.name)
-    var info  = box.append("div").attr("class","info")
+     box.append("div").attr("class","title").text(penguin.name)
+     var info  = box.append("div").attr("class","info")
 
-    info.append("div").text("Quizzes:   "+penguin.meanQuiz);
-    info.append("div").text("Homework: "+penguin.meanHW);
-    info.append("div").text("Tests:  "+penguin.meanTests);
-    info.append("div").text("Final Grade:  "+penguin.finGrade);
+     info.append("div").text("Quizzes:   "+penguin.meanQuiz);
+     info.append("div").text("Homework: "+penguin.meanHW);
+     info.append("div").text("Tests:  "+penguin.meanTests);
+     info.append("div").text("Final Grade:  "+penguin.finGrade);
+      }
 
 var prettyPenguins = function(penguins)
-{
+     {
     d3.select("#pinguinPictures")
       .selectAll("img")
       .data(penguins)
       .enter()
       .append("img")
       .attr("src",function(d) {return d.img})
-      .on("click",function(d)
-         {
-           drawDetails(d);
-         })
-}
+      .on("click",function(d) {drawDetails(d)})
+     }
 
 
 
 //button returns//
-    var poorly = meanQuiz < 70;
+    var poorly = finGrade < 70;
     
     d3.select("#poor")
       .on("click", function()
@@ -111,7 +107,19 @@ var prettyPenguins = function(penguins)
            poorly.sort(function(a,b))
                         {
                          return (a - b);
-    }});
+                         }
+          });
+
+     var passingp = finGrade > 70;
+
+     d3.select("#passing")
+       .on("click, function()
+           {
+           passingp.sort(function(a,b))
+                     {
+                         return(a-b):
+                     }
+       });
                
     
     
