@@ -51,8 +51,11 @@ var meanTests=function(penguin)
  var answer=d3.mean(pq);
  return answer;}
 
+var final=function(final)
+{return final.grade;}
+
 var finGrade=function(penguin)
-    {var obj=(meanFinal*0.35)+(meanTests*0.3)+(meanQuiz*0.2)+(meanHW*0.15);
+    {var obj=(final*0.35)+(meanTests*0.3)+(meanQuiz*0.2)+(meanHW*0.15);
         return obj;}
 
 //push of new info to penguins//
