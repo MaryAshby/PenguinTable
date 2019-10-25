@@ -147,4 +147,27 @@ var prettyPenguins = function(penguins)
          makeTable(penguins.sort(function(a,b)
                                  {return a-b}), "ALL")
      }
+           
+    sortColumn(planets,"#homework",function(p){return p.meanHW});
+    sortColumn(planets,"#test",function(p){return p.meanTests});
+    sortColumn(planets,"#final",function(p){return p.finGrade});
+      
+var setButtons = function(penguins)
+     {
+      d3.select("#all").on("click",function()
+                       {
+                        makeTable(penguins,"all")
+                       });
+    
+    d3.select("passing").on("click",function()
+                        {
+        makeTable(penguins,"passing")
+    });
+    
+    d3.select("#poor").on("click",function()
+                        {
+        makeTable(planets,"poor")
+    });
+     
+   
                    
