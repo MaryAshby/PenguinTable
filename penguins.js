@@ -1,6 +1,28 @@
+
+//set banner for promise retrieval//
+
+var setBanner = function(message)
+{
+    d3.select("#banner").text(message);
+}
+
+
+//promise//
+
+var penguinPromise = d3.json("classData.json")
+
+penguinPromise.then(function(penguin)
+{
+ setBanner("Pretty Pompous Penguins");
+},
+function(err)
+{
+ setBanner("Penguins Have Left the Building");
+});
+
 //creation of requested data//
 
-//var picture=function(penguin)
+var picture=function(penguin)
 {var obj=
     {picture: penguin.picture};
      return obj;}
@@ -32,7 +54,7 @@ var meanTests=function(penguin)
 var finGrade=function(penguin)
     {var obj=(meanFinal*0.35)+(meanTests*0.3)+(meanQuiz*0.2)+(meanHW*0.15);
         return obj;}
-//
+
 //push of new info to penguins//
 
 
@@ -42,7 +64,7 @@ classroom.push(penguinTableInformation);
 
 
 //create data set up//
-//
+
 var pinguinFacts = function(penguin)
 {
     d3.selectAll("#pinguinData *").remove();
@@ -73,28 +95,8 @@ var prettyPenguins = function(penguins)
            drawDetails(d);
          })
 }
-//
-
-//set banner for promise retrieval//
-
-var setBanner = function(message)
-{
-    d3.select("#banner").text(message);
-}
 
 
-//promise//
-
-var penguinPromise = d3.json("classData.json")
-
-penguinPromise.then(function(penguin)
-{
- setBanner("Pretty Pompous Penguins");
-},
-function(err)
-{
- setBanner("Penguins Have Left the Building");
-});
 
 //button returns//
     var poorly = meanQuiz < 70;
