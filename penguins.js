@@ -134,9 +134,9 @@ var filterPenguins = function(penguin, mode)
                                  {return a-b}), "all")
      }
            
-    sortColumn(planets,"#homework", function(p){return p.meanHW});
-    sortColumn(planets,"#test", function(p){return p.meanTests});
-    sortColumn(planets,"#final", function(p){return p.finGrade});
+    sortColumn(penguin,"#homework", function(p){return p.meanHW});
+    sortColumn(penguin,"#test", function(p){return p.meanTests});
+    sortColumn(penguin,"#final", function(p){return p.finGrade});
       
   var addCol = function(rows, fcn)
 {
