@@ -1,6 +1,6 @@
 //creation of requested data//
 
-var picture=function(penguin)
+//var picture=function(penguin)
 {var obj=
     {picture: penguin.picture};
      return obj;}
@@ -32,7 +32,7 @@ var meanTests=function(penguin)
 var finGrade=function(penguin)
     {var obj=(meanFinal*0.35)+(meanTests*0.3)+(meanQuiz*0.2)+(meanHW*0.15);
         return obj;}
-
+//
 //push of new info to penguins//
 
 
@@ -42,7 +42,7 @@ classroom.push(penguinTableInformation);
 
 
 //create data set up//
-
+//
 var pinguinFacts = function(penguin)
 {
     d3.selectAll("#pinguinData *").remove();
@@ -73,6 +73,7 @@ var prettyPenguins = function(penguins)
            drawDetails(d);
          })
 }
+//
 
 //set banner for promise retrieval//
 
