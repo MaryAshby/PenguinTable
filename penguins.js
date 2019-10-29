@@ -22,7 +22,7 @@ function(err)
 //creation of requested data//
 
 var picture=function(penguin)
-    {var obj=picture: penguin.picture;
+    {var obj=picture: penguin.img;
      return obj;}
 
 var getGrade=function(quiz) 
