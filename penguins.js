@@ -8,7 +8,7 @@ var setBanner = function(message)
 
 //promise//
 
-var penguinPromise = d3.json("penguin/classData.json")
+var penguinPromise = d3.json("penguins/classData.json")
 
 penguinPromise.then(function(penguin)
      {
